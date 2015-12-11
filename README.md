@@ -10,9 +10,8 @@ running application mvn spring-boot:run
 REST API
 
 2. Post http://localhost:8080/sudoko/rest/api  for creating new board
-  {
-   "sudokoBoardAsString" :"9..2....8..8...7.2...48..3.3..7.4..9..2.1.....8....4..8..1....4....4..7..9.8.3..5"
- }
+  {"sudokoBoardAsString":"7...4.53...5..8.1...85.9.4.539.6...1....1...58..72.9..9.74.........57...6...
+...5."}
   "sudokoBoardAsString" is required filed
   value must be contains 1 to 9 or DOT value
   length must be 81 character
@@ -26,20 +25,31 @@ REST API
 } 
 
 2: Validating success moves
-Post http://localhost:8080/sudoko/rest/api/solve/successiveMoves
+Post http://localhost:8080/sudoko/rest/api/successiveMoves
 parameters
-{
+
  {
  "row":8,
  "column":6,
  "cellValue":"1",
  "id":1
  }
-}
+
  row required data type int valid range 0 to 8
  column required data type int valid range 0 to 8
  cellValue required data type int valid range 1 to 9
  id required  data type int id of sudokoboard created before
+ 
+ Response
+ 
+ {
+	"id": 1
+	"row": 8
+	"column": 6
+	"isValidMove": true  
+	"cellValue": 1
+	"isSudokoFinished": false
+}
  
  3:
  In order to Solve the Board
