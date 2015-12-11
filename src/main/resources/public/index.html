@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Sudoko Example</title>
+        <meta charset="UTF-8">
+        <meta id="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script type="text/javascript" src="js/myscript.js"></script>
+    </head>
+    <body>
+        <style>
+            table { border-collapse: collapse; font-family: Calibri, sans-serif; }
+            colgroup, tbody { border: solid medium; }
+            td { border: solid thin; height: 1.4em; width: 1.4em; text-align: center; padding: 0; }
+        </style>
+
+        <br>
+        <br>
+        <br>
+        <span id="p1"></span>
+        <br>
+        <span id="sudokoFinishedStatus"></span>
+        <form action="#" id="myForm">
+        <table>
+
+            <colgroup><col><col><col>
+            <colgroup><col><col><col>
+            <colgroup><col><col><col>
+            <tbody>
+                <tr> <td><input type="text" id="VAL0" size="1" value="7" maxlength="1" onblur="validateTheCellValue(this, 'VAL0')"> <td><input type="text" id="VAL1" size="1" value="" maxlength="1" onblur="validateTheCellValue(this, 'VAL1')"> 
+                    <td><input type="text" id="VAL2" size="1" value="" maxlength="1" onblur="validateTheCellValue(this, 'VAL2')"> <td><input type="text" id="VAL3" size="1" value="" maxlength="1" onblur="validateTheCellValue(this, 'VAL3')"> 
+                    <td> <input type="text" id="VAL4" size="1" value="4" maxlength="1" onblur="validateTheCellValue(this, 'VAL4')"> <td><input type="text" id="VAL5" size="1" value="" maxlength="1" onblur="validateTheCellValue(this, 'VAL5')">
+                    <td><input type="text" id="VAL6" size="1" value="5" maxlength="1" onblur="validateTheCellValue(this, 'VAL6')"><td> <input type="text" id="VAL7" size="1" value="3" maxlength="1" onblur="validateTheCellValue(this, 'VAL7')"> 
+                    <td><input type="text" id="VAL8" size="1" value="" maxlength="1" onblur="validateTheCellValue(this, 'VAL8')">
+                <tr> <td><input type="text" id="VAL9" size="1" value="" maxlength="1" onblur="validateTheCellValue(this, 'VAL9')"> <td><input type="text" id="VAL10" size="1" value="" maxlength="1" onblur="validateTheCellValue(this, 'VAL10')"> 
+                    <td><input type="text" id="VAL11" size="1" value="5" maxlength="1" onblur="validateTheCellValue(this, 'VAL11')"> <td><input type="text" id="VAL12" size="1" value="" maxlength="1" onblur="validateTheCellValue(this, 'VAL12')"> 
+                    <td> <input type="text" id="VAL13" size="1" value="" maxlength="1" onblur="validateTheCellValue(this, 'VAL13')"> <td><input type="text" id="VAL14" size="1" value="8" maxlength="1" onblur="validateTheCellValue(this, 'VAL14')">
+                    <td><input type="text" id="VAL15" size="1" value="" maxlength="1" onblur="validateTheCellValue(this, 'VAL15')"><td> <input type="text" id="VAL16" size="1" value="1" maxlength="1" onblur="validateTheCellValue(this, 'VAL16')"> 
+                    <td><input type="text" id="VAL17" size="1" value="" maxlength="1" onblur="validateTheCellValue(this, 'VAL17')">
+                <tr> <td><input type="text" id="VAL18" size="1" value="" maxlength="1" onblur="validateTheCellValue(this, 'VAL18')"> <td><input type="text" id="VAL19" size="1" value="" maxlength="1" onblur="validateTheCellValue(this, 'VAL19')"> 
+                    <td><input type="text" id="VAL20" size="1" value="8" maxlength="1" onblur="validateTheCellValue(this, 'VAL20')"> <td><input type="text" id="VAL21" size="1" value="5" maxlength="1" onblur="validateTheCellValue(this, 'VAL21')"> 
+                    <td> <input type="text" id="VAL22" size="1" value="" maxlength="1" onblur="validateTheCellValue(this, 'VAL22')"> <td><input type="text" id="VAL23" size="1" value="9" maxlength="1" onblur="validateTheCellValue(this, 'VAL23')">
+                    <td><input type="text" id="VAL24" size="1" value="" maxlength="1" onblur="validateTheCellValue(this, 'VAL24')"><td> <input type="text" id="VAL25" size="1" value="4" maxlength="1" onblur="validateTheCellValue(this, 'VAL25')"> 
+                    <td><input type="text" id="VAL26" size="1" value="" maxlength="1" onblur="validateTheCellValue(this, 'VAL26')">
+            <tbody>
+                <tr> <td><input type="text" id="VAL27" size="1" value="5" maxlength="1" onblur="validateTheCellValue(this, 'VAL27')"> <td><input type="text" id="VAL28" size="1" value="3" maxlength="1" onblur="validateTheCellValue(this, 'VAL28')"> 
+                    <td><input type="text" id="VAL29" size="1" value="9" maxlength="1" onblur="validateTheCellValue(this, 'VAL29')"> <td><input type="text" id="VAL30" size="1" value="" maxlength="1" onblur="validateTheCellValue(this, 'VAL30')"> 
+                    <td> <input type="text" id="VAL31" size="1" value="6" maxlength="1" onblur="validateTheCellValue(this, 'VAL31')"> <td><input type="text" id="VAL32" size="1" value="" maxlength="1" onblur="validateTheCellValue(this, 'VAL32')">
+                    <td><input type="text" id="VAL33" size="1" value="" maxlength="1" onblur="validateTheCellValue(this, 'VAL33')"><td> <input type="text" id="VAL34" size="1" value="" maxlength="1" onblur="validateTheCellValue(this, 'VAL34')"> 
+                    <td><input type="text" id="VAL35" size="1" value="1" maxlength="1" onblur="validateTheCellValue(this, 'VAL35')">
+                <tr> <td><input type="text" id="VAL36" size="1" value="" maxlength="1" onblur="validateTheCellValue(this, 'VAL36')"> <td><input type="text" id="VAL37" size="1" value="" maxlength="1" onblur="validateTheCellValue(this, 'VAL37')"> 
+                    <td><input type="text" id="VAL38" size="1" value="" maxlength="1" onblur="validateTheCellValue(this, 'VAL38')"> <td><input type="text" id="VAL39" size="1" value="" maxlength="1" onblur="validateTheCellValue(this, 'VAL39')"> 
+                    <td> <input type="text" id="VAL40" size="1" value="1" maxlength="1" onblur="validateTheCellValue(this, 'VAL40')"> <td><input type="text" id="VAL41" size="1" value="" maxlength="1" onblur="validateTheCellValue(this, 'VAL41')">
+                    <td><input type="text" id="VAL42" size="1" value="" maxlength="1" onblur="validateTheCellValue(this, 'VAL42')"><td> <input type="text" id="VAL43" size="1" value="" maxlength="1" onblur="validateTheCellValue(this, 'VAL43')"> 
+                    <td><input type="text" id="VAL44" size="1" value="5" maxlength="1" onblur="validateTheCellValue(this, 'VAL44')">
+                <tr> <td><input type="text" id="VAL45" size="1" value="8" maxlength="1" onblur="validateTheCellValue(this, 'VAL45')"> <td><input type="text" id="VAL46" size="1" value="" maxlength="1" onblur="validateTheCellValue(this, 'VAL46')"> 
+                    <td><input type="text" id="VAL47" size="1" value="" maxlength="1" onblur="validateTheCellValue(this, 'VAL47')"> <td><input type="text" id="VAL48" size="1" value="7" maxlength="1" onblur="validateTheCellValue(this, 'VAL48')"> 
+                    <td> <input type="text" id="VAL49" size="1" value="2" maxlength="1" onblur="validateTheCellValue(this, 'VAL49')"> <td><input type="text" id="VAL50" size="1" value="" maxlength="1" onblur="validateTheCellValue(this, 'VAL50')">
+                    <td><input type="text" id="VAL51" size="1" value="9" maxlength="1" onblur="validateTheCellValue(this, 'VAL51')"><td> <input type="text" id="VAL52" size="1" value="" maxlength="1" onblur="validateTheCellValue(this, 'VAL52')"> 
+                    <td><input type="text" id="VAL53" size="1" value="" maxlength="1" onblur="validateTheCellValue(this, 'VAL53')">
+            <tbody>
+                <tr> <td><input type="text" id="VAL54" size="1" value="9" maxlength="1" onblur="validateTheCellValue(this, 'VAL54')"> <td><input type="text" id="VAL55" size="1" value="" maxlength="1" onblur="validateTheCellValue(this, 'VAL55')"> 
+                    <td><input type="text" id="VAL56" size="1" value="7" maxlength="1" onblur="validateTheCellValue(this, 'VAL56')"> <td><input type="text" id="VAL57" size="1" value="4" maxlength="1" onblur="validateTheCellValue(this, 'VAL57')"> 
+                    <td> <input type="text" id="VAL58" size="1" value="" maxlength="1" onblur="validateTheCellValue(this, 'VAL58')"> <td><input type="text" id="VAL59" size="1" value="" maxlength="1" onblur="validateTheCellValue(this, 'VAL59')">
+                    <td><input type="text" id="VAL60" size="1" value="" maxlength="1" onblur="validateTheCellValue(this, 'VAL60')"><td> <input type="text" id="VAL61" size="1" value="" maxlength="1" onblur="validateTheCellValue(this, 'VAL61')"> 
+                    <td><input type="text" id="VAL62" size="1" value="" maxlength="1" onblur="validateTheCellValue(this, 'VAL62')">
+                <tr> <td><input type="text" id="VAL63" size="1" value="" maxlength="1" onblur="validateTheCellValue(this, 'VAL63')"> <td><input type="text" id="VAL64" size="1" value="" maxlength="1" onblur="validateTheCellValue(this, 'VAL64')"> 
+                    <td><input type="text" id="VAL65" size="1" value="" maxlength="1" onblur="validateTheCellValue(this, 'VAL65')"> <td><input type="text" id="VAL66" size="1" value="" maxlength="1" onblur="validateTheCellValue(this, 'VAL66')"> 
+                    <td> <input type="text" id="VAL67" size="1" value="5" maxlength="1" onblur="validateTheCellValue(this, 'VAL67')"> <td><input type="text" id="VAL68" size="1" value="7" maxlength="1" onblur="validateTheCellValue(this, 'VAL68')">
+                    <td><input type="text" id="VAL69" size="1" value="" maxlength="1" onblur="validateTheCellValue(this, 'VAL69')"><td> <input type="text" id="VAL70" size="1" value="" maxlength="1" onblur="validateTheCellValue(this, 'VAL70')"> 
+                    <td><input type="text" id="VAL71" size="1" value="" maxlength="1" onblur="validateTheCellValue(this, 'VAL71')">
+                <tr> <td><input type="text" id="VAL72" size="1" value="6" maxlength="1" onblur="validateTheCellValue(this, 'VAL72')"> <td><input type="text" id="VAL73" size="1" value="" maxlength="1" onblur="validateTheCellValue(this, 'VAL73')"> 
+                    <td><input type="text" id="VAL74" size="1" value="" maxlength="1" onblur="validateTheCellValue(this, 'VAL74')"> <td><input type="text" id="VAL75" size="1" value="" maxlength="1" onblur="validateTheCellValue(this, 'VAL75')"> 
+                    <td> <input type="text" id="VAL76" size="1" value="" maxlength="1" onblur="validateTheCellValue(this, 'VAL76')"> <td><input type="text" id="VAL77" size="1" value="" maxlength="1" onblur="validateTheCellValue(this, 'VAL77')">
+                    <td><input type="text" id="VAL78" size="1" value="" maxlength="1" onblur="validateTheCellValue(this, 'VAL78')" ><td> <input type="text" id="VAL79" size="1" value="5" maxlength="1" onblur="validateTheCellValue(this, 'VAL79')"> 
+                    <td><input type="text" id="VAL80" size="1" value="" maxlength="1" onblur="validateTheCellValue(this, 'VAL80')" >
+        </table>
+
+        <br><br><br>
+        <input type="button" value="Create Board" onclick="createSudokoBoard()">
+        &nbsp;&nbsp;&nbsp;
+        <input type="checkbox" value="" id="sudokoHintId"> Hint
+        &nbsp;&nbsp;&nbsp;
+
+        <input type="button" value="Solve" onclick="solveSudoko()">
+        
+        &nbsp;&nbsp;&nbsp;
+        
+        <input type="button" value="reset" onclick="restForm()" />
+        </form>
+    </body>
+</html>
