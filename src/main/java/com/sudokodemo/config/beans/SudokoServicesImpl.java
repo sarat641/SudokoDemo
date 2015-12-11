@@ -59,6 +59,7 @@ public class SudokoServicesImpl implements SudokoService {
         BasicSudokoDTO sudoko = new BasicSudokoDTO();
         sudoko.setSudokoBoadSolutionString(sudokoBoard.getSolutionArrayAsString());
         sudoko.setSolutionExists(sudokoBoard.getHavingSolution());
+        sudoko.setIsValidBoard(Boolean.TRUE);
         return sudoko;
     }
 
