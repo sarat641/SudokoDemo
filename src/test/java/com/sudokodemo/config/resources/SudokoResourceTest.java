@@ -139,28 +139,12 @@ public class SudokoResourceTest {
                 .andExpect(jsonPath("$.fieldErrors", hasSize(1)))
                 .andExpect(jsonPath("$.fieldErrors[0].field", is("sudokoBoardAsString")))
                 .andExpect(jsonPath("$.fieldErrors[0].message", is(
-                                        "Allowed Numbers 1 to 9 or Dot"
+                                        "Allowed Numbers 1 to 9 or Dot and length must me 81"
                                 )));
         verifyZeroInteractions(service);
     }
 
-    @Test
-    public void solveSudokoInvalidSudokoBoardAsString() throws Exception {
-     /*   String sudokoBoardAsString = "..5....3....9...8....57.....9.7....3.7.13..5.3.2......2...8......1..94259....78.X";
-        BasicSudokoDTO inputSudokoDTO = new BasicSudokoDTO();
-        inputSudokoDTO.setSudokoBoardAsString(sudokoBoardAsString);
-
-        mvc.perform(post(URL.concat("/solve")).contentType(MediaType.APPLICATION_JSON).content(TestUtil.convertObjectToJsonBytes(inputSudokoDTO)))
-                .andExpect(status().isBadRequest())
-                .andExpect(content().contentType(TestUtil.APPLICATION_JSON_UTF8))
-                .andExpect(jsonPath("$.fieldErrors", hasSize(1)))
-                .andExpect(jsonPath("$.fieldErrors[0].field", is("sudokoBoardAsString")))
-                .andExpect(jsonPath("$.fieldErrors[0].message", is(
-                                        "Allowed Numbers 1 to 9 or Dot"
-                                )));
-        verifyZeroInteractions(service);*/
-    }
-
+   
     @Test
     public void successiveMovesInvalidData() throws Exception {
         SudokoDTO sudokoDTO = new SudokoDTO();
@@ -181,7 +165,6 @@ public class SudokoResourceTest {
 
     @Test
     public void successiveMovesOutOfRangeRowColumnCellValue() throws Exception {
-        String sudokoBoardAsString = "9..2....8..8...7.2...48..3.3..7.4..9..2.1.....8....4..8..1....4....4..7..9.8.3..5";
         SudokoDTO sudokoDTO = new SudokoDTO();
         sudokoDTO.setRow(10);
         sudokoDTO.setColumn(11);
