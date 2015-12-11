@@ -61,7 +61,7 @@ public class SudokoResourceTest {
     }
 
     @Test
-    public void validateSudokoBoard() throws Exception {
+    public void createSudokoBoard() throws Exception {
         String sudokoBoardAsString = "..5....3....9...8....57.....9.7....3.7.13..5.3.2......2...8......1..94259....78..";
         BasicSudokoDTO inputSudokoDTO = new BasicSudokoDTO();
         inputSudokoDTO.setSudokoBoardAsString(sudokoBoardAsString);
