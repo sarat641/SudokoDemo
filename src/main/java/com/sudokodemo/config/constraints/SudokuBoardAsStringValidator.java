@@ -17,7 +17,7 @@ public class SudokuBoardAsStringValidator implements ConstraintValidator<SudokuB
     @Override
     public boolean isValid(String t, ConstraintValidatorContext cvc) {
         String regex = "^([1-9.]*)$";
-        if (t == null || t.matches(regex)) {
+        if (t == null || (t.matches(regex) && t.length()==81)) {
             return Boolean.TRUE;
         } else {
             return Boolean.FALSE;
