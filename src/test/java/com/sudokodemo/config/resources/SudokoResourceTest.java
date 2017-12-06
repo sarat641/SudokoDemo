@@ -24,17 +24,16 @@ import org.mockito.ArgumentCaptor;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.SpringApplicationConfiguration;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.MessageSource;
 import org.springframework.mock.web.MockServletContext;
-import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 
 /**
  *
  * @author SARAT
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(classes = {MockServletContext.class, TestContext.class})
+@SpringBootTest(classes = {MockServletContext.class, TestContext.class})
 @WebAppConfiguration
 public class SudokoResourceTest {
 

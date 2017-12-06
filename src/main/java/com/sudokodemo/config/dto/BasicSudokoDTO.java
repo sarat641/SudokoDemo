@@ -6,7 +6,12 @@
 package com.sudokodemo.config.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonSerializer;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.sudokodemo.config.constraints.SudokuBoardAsString;
+import java.io.IOException;
 import javax.validation.constraints.NotNull;
 
 /**
@@ -14,7 +19,7 @@ import javax.validation.constraints.NotNull;
  * @author SARAT
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class BasicSudokoDTO {
+public class BasicSudokoDTO extends JsonSerializer<BasicSudokoDTO> {
 
     private Integer id;
     @NotNull
@@ -68,4 +73,14 @@ public class BasicSudokoDTO {
         this.sudokoBoardAsString = sudokoBoardAsString;
     }
 
+    @Override
+    public void serialize(BasicSudokoDTO t, JsonGenerator jg, SerializerProvider sp) throws IOException, JsonProcessingException {
+    }
+
+    @Override
+    public boolean isEmpty(SerializerProvider provider, BasicSudokoDTO value) {
+        return super.isEmpty(provider, value); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    
 }
